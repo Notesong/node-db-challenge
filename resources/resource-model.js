@@ -7,16 +7,16 @@ module.exports = {
 };
 
 function find() {
-  return db("projects");
+  return db("resources");
 }
 
 function findById(id) {
-  return db("projects").where({ id }).first();
+  return db("resources").where({ id }).first();
 }
 
-function add(project) {
-  return db("projects")
-    .insert(project, "id")
+function add(resource) {
+  return db("resources")
+    .insert(resource, "id")
     .then((ids) => {
       const id = ids[0];
       return findById(id);
